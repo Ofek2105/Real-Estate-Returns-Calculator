@@ -4,7 +4,8 @@ import PurchaseOpsSimple from './components/PurchaseOpsSimple/PurchaseOpsSimple'
 import ToastProvider from './components/ToastProvider/ToastProvider';
 import ResultsChart from './components/ResultsChart/ResultsChart';
 import Header from './components/Header/Header';
-import { computeFullPrice } from './utils/math';
+import HelpPanel from './components/HelpPanel/HelpPanel';
+import { computeFullPrice, computeTotal100 } from './utils/math';
 
 import type { PaymentTableState, Row } from './types/finance';
 import './app.css';
@@ -37,7 +38,7 @@ const initialState: PaymentTableState = {
 
 export default function App() {
   const [state, setState] = React.useState<PaymentTableState>(initialState);
-  const [investmentCost, setInvestmentCost] = React.useState<number | null>(null);
+  const investmentCost = React.useMemo(() => computeTotal100(state), [state]);
   const [monthlyRent, setMonthlyRent] = React.useState<number>(0);
 
   const [propAppPctYear, setPropAppPctYear] = React.useState(0);
@@ -58,7 +59,6 @@ export default function App() {
         <PaymentPlanTable
           state={state}
           onChange={setState}
-          onInvestmentCost={setInvestmentCost}
         />
         <PurchaseOpsSimple
           investmentCost={investmentCost}
@@ -79,15 +79,15 @@ export default function App() {
         <ResultsChart
           currency={state.currency}
           fullPriceNow={fullPriceNow}
-          investmentCost={investmentCost}
+          investmentCost={investmentCost ?? 0}
           monthlyRent={monthlyRent}
           propAppreciationPctYear={propAppPctYear}
           rentAppreciationPctYear={rentAppPctYear}
-          opExPctOfRent={opExPctOfRent}             // ⬅️ pass value
-          onHorizonMonthsChange={setHorizonMonths}     // ⬅️ pass setter
+          opExPctOfRent={opExPctOfRent}
+          onHorizonMonthsChange={setHorizonMonths}
           horizonMonths={horizonMonths}
         />
-
+        <HelpPanel defaultOpen={false} />
       </div>
     </ToastProvider>
   );

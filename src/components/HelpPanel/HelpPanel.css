@@ -1,0 +1,70 @@
+.help-panel {
+    border: 1px solid var(--border, #2a3b5f);
+    background: var(--panel, #101726);
+    border-radius: 12px;
+    padding: 12px;
+}
+
+.help-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.help-title {
+    margin: 0;
+    font-size: 1.05rem;
+    color: var(--text-1, #e6edf6);
+    letter-spacing: 0.2px;
+}
+
+.help-toggle {
+    appearance: none;
+    border: 1px solid var(--border, #2a3b5f);
+    background: var(--panel-elev, #141d36);
+    color: var(--text-1, #e6edf6);
+    padding: 6px 12px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.help-toggle:hover {
+    filter: brightness(1.05);
+}
+
+.help-content {
+    margin-top: 10px;
+}
+
+.help-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 10px;
+}
+
+.help-card {
+    background: var(--panel-elev, #141d36);
+    border: 1px solid var(--border, #2a3b5f);
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.help-card h4 {
+    margin: 0 0 6px 0;
+    font-size: 0.95rem;
+    color: var(--text-1, #e6edf6);
+}
+
+.help-card p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--text-2, #b7c4df);
+    line-height: 1.35;
+}
+
+/* Optional open/closed styles */
+.help-panel.closed .help-content {
+    display: none;
+}

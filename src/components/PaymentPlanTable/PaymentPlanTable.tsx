@@ -15,7 +15,6 @@ import './PaymentPlanTable.css';
 type Props = {
     state: PaymentTableState;
     onChange: (s: PaymentTableState) => void;
-    onInvestmentCost: (val: number | null) => void;
 };
 
 function uuid() { return Math.random().toString(36).slice(2); }
@@ -35,11 +34,17 @@ const defaultRateMap: Record<string, number> = {
     AUD: 1.62,
 };
 
-export default function PaymentPlanTable({ state, onChange, onInvestmentCost }: Props) {
+export default function PaymentPlanTable({ state, onChange }: Props) {
     const { addToast } = useToasts();
 
     const percentSum = useMemo(() => sumStagePercents(state), [state]);
     const validity = useMemo(() => isStateValid(state), [state]);
+
+    const apartmentPrice = useMemo(() => {
+        const row = state.rows.find(r => r.builtin === 'apartment' && r.kind === 'amount');
+        return row?.amount100 ?? 0;
+    }, [state.rows]);
+
     const baseCurrency = state.currency; // table currency
 
     // compute derived numbers
@@ -91,16 +96,6 @@ export default function PaymentPlanTable({ state, onChange, onInvestmentCost }: 
         };
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [baseCurrency]);
-
-    useEffect(() => {
-        if (!validity.ok) {
-            addToast(validity.reason || 'Invalid inputs.');
-            onInvestmentCost(null);
-        } else {
-            onInvestmentCost(Number.isFinite(total100) ? total100 : null);
-        }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [validity.ok, total100, validity.reason]);
 
     // Stage ops
     const setStages = (stages: Stage[]) => onChange({ ...state, stages });
@@ -171,11 +166,11 @@ export default function PaymentPlanTable({ state, onChange, onInvestmentCost }: 
                     return <span>{formatCurrency(fullPrice, baseCurrency)}</span>;
                 }
                 if (r.builtin === 'notary') {
-                    const val = (state.notaryPercent / 100) * fullPrice;
+                    const val = (state.notaryPercent / 100) * apartmentPrice;
                     return <span>{formatCurrency(val, baseCurrency)}</span>;
                 }
                 if (r.builtin === 'appraiser') {
-                    const val = (state.appraiserPercent / 100) * fullPrice;
+                    const val = (state.appraiserPercent / 100) * apartmentPrice;
                     return <span>{formatCurrency(val, baseCurrency)}</span>;
                 }
                 if (r.builtin === 'total') {

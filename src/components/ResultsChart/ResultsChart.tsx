@@ -21,6 +21,7 @@ type Props = {
 export default function ResultsChart({
     currency,
     fullPriceNow,
+    investmentCost,
     monthlyRent,
     propAppreciationPctYear,
     rentAppreciationPctYear,
@@ -47,6 +48,7 @@ export default function ResultsChart({
             equityGain: number;
             cumulativeNetCF: number;
             netCFMonth: number;
+            invCost?: number;
         }[] = [];
 
         let cumulativeNetCF = 0;
@@ -66,10 +68,11 @@ export default function ResultsChart({
                 equityGain,
                 cumulativeNetCF,
                 netCFMonth,
+                invCost: investmentCost ?? undefined,
             });
         }
         return rows;
-    }, [months, fullPriceNow, monthlyRent, propAppreciationPctYear, rentAppreciationPctYear, opExPctOfRent]);
+    }, [months, fullPriceNow, monthlyRent, propAppreciationPctYear, rentAppreciationPctYear, opExPctOfRent, investmentCost]);
 
     return (
         <div className="results-chart">
@@ -130,7 +133,13 @@ export default function ResultsChart({
                         <Tooltip
                             contentStyle={{ background: 'var(--panel)', border: '1px solid var(--border)', borderRadius: 'var(--radius-sm)' }}
                             formatter={(val: any, name: string) => {
-                                if (name === 'Property Value' || name === 'Equity Gain' || name === 'Cumulative Net CF' || name === 'Net CF / month') {
+                                if (
+                                    name === 'Property Value' ||
+                                    name === 'Equity Gain' ||
+                                    name === 'Cumulative Net CF' ||
+                                    name === 'Net CF / month' ||
+                                    name === 'Investment Cost'          // ← NEW
+                                ) {
                                     return [formatCompactCurrency(Number(val), currency), name];
                                 }
                                 return [String(val), name];
@@ -178,6 +187,17 @@ export default function ResultsChart({
                             stroke="var(--chart-4)"
                             dot={false}
                             strokeWidth={1.2}
+                        />
+
+                        {/* Constant Investment Cost line */}
+                        <Line
+                            type="monotone"
+                            dataKey="invCost"
+                            name="Investment Cost"
+                            stroke="var(--text-2)"
+                            strokeDasharray="6 6"
+                            dot={false}
+                            strokeWidth={1.6}
                         />
                     </ComposedChart>
                 </ResponsiveContainer>
