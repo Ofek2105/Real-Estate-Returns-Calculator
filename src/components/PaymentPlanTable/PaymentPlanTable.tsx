@@ -1,4 +1,4 @@
-import React, { useMemo, useState, useEffect } from 'react';
+import { useMemo, useState, useEffect } from 'react';
 import type { PaymentTableState, Row, Stage } from '../../types/finance';
 import { formatCurrency, isFiniteNumber } from '../../utils/format';
 import {
