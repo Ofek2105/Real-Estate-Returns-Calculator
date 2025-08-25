@@ -1,0 +1,16 @@
+.results-chart {
+    margin-top: var(--space-2);
+}
+
+.ra-chart-title {
+    margin: 0 0 var(--space-1) 0;
+    font-size: var(--fs-3);
+    color: var(--text-1);
+}
+
+.rc-card {
+    border: 1px solid var(--border);
+    background: var(--panel);
+    border-radius: var(--radius);
+    padding: var(--space-2);
+}

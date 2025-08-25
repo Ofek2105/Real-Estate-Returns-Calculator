@@ -1,0 +1,64 @@
+:root {
+    /* brand */
+    --color-brand: #2a6ef2;
+    --color-brand-600: #255fce;
+    --color-brand-700: #1f51ad;
+
+    /* text */
+    --text-1: #0f172a;
+    /* primary */
+    --text-2: #334155;
+    /* secondary */
+    --text-inverse: #ffffff;
+
+    /* surface */
+    --bg: #f8fafc;
+    --panel: #ffffff;
+    --panel-elev: #f1f5f9;
+    --border: #e2e8f0;
+
+    /* status */
+    --ok: #16a34a;
+    --warn: #ea580c;
+    --bad: #dc2626;
+
+    /* chart palette */
+    --chart-1: #2563eb;
+    --chart-2: #10b981;
+    --chart-3: #f59e0b;
+    --chart-4: #ef4444;
+    --chart-5: #8b5cf6;
+
+    /* spacing & radius */
+    --radius: 14px;
+    --radius-sm: 10px;
+    --space-1: 6px;
+    --space-2: 10px;
+    --space-3: 14px;
+    --space-4: 20px;
+    --space-6: 28px;
+
+    /* typography */
+    --font-sans: 'Montserrat', 'Segoe UI', Roboto, sans-serif;
+    --fs-1: 18px;
+    --fs-2: 16px;
+    --fs-3: 18px;
+    --fs-4: 22px;
+    --fs-5: 28px;
+}
+
+:root {
+    --bg: #0b0b0b;
+    /* rich black */
+    --panel: #141414;
+    /* slightly elevated black */
+    --panel-elev: #1c1c1c;
+    --border: #2e2e2e;
+    /* subtle gray border */
+    --text-1: #f2f2f2;
+    /* ivory white */
+    --text-2: #bdbdbd;
+    /* soft gray */
+    --accent: #c6a64f;
+    /* refined gold */
+}

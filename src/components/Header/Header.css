@@ -1,0 +1,30 @@
+.header {
+    width: 100%;
+    padding: 1.5rem 0;
+    background-color: rgb(255, 255, 255);
+    /* or a subtle gradient if you like */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid #eaeaea;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.header-logo {
+    height: 100px;
+    width: 100px;
+}
+
+.header-title {
+    font-family: "Georgia", "Times New Roman", serif;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #222;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}

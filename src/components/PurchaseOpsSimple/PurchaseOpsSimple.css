@@ -1,0 +1,130 @@
+.purchase-ops {
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: var(--space-2);
+    margin-top: var(--space-2);
+    background: var(--panel);
+}
+
+.ops-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-2);
+}
+
+.ops-field label {
+    display: block;
+    font-size: var(--fs-1);
+    color: var(--text-2);
+    margin-bottom: 4px;
+}
+
+.readonly {
+    padding: 8px 10px;
+    background: var(--panel-elev);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    font-variant-numeric: tabular-nums;
+}
+
+.readonly.bad {
+    color: var(--bad);
+    font-weight: 700;
+}
+
+#monthly-rent {
+    padding: 8px 10px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    width: 100%;
+    background: var(--panel);
+    color: var(--text-1);
+}
+
+/* NEW: results row (NOI & Cap Rate) */
+.ops-results {
+    margin-top: var(--space-2);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-2);
+}
+
+.res-item {
+    background: var(--panel-elev);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: var(--space-2);
+}
+
+.res-label {
+    color: var(--text-2);
+    font-size: var(--fs-1);
+    margin-bottom: 2px;
+}
+
+.res-value {
+    font-size: var(--fs-3);
+    font-variant-numeric: tabular-nums;
+}
+
+.res-value.bad {
+    color: var(--bad);
+    font-weight: 700;
+}
+
+.res-hint {
+    color: var(--text-2);
+    font-size: 12px;
+    margin-top: 2px;
+}
+
+/* Advanced block content */
+.advanced {
+    margin-top: var(--space-2);
+}
+
+.advanced>summary {
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--text-1);
+    list-style: none;
+}
+
+.advanced>summary::-webkit-details-marker {
+    display: none;
+}
+
+.advanced[open]>summary {
+    color: var(--color-brand);
+}
+
+.adv-grid {
+    margin-top: var(--space-2);
+    display: grid;
+    grid-template-columns: repeat(3, minmax(180px, 1fr));
+    gap: var(--space-2);
+}
+
+.adv-field label {
+    display: block;
+    font-size: var(--fs-1);
+    color: var(--text-2);
+    margin-bottom: 2px;
+}
+
+.editline {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.suffix {
+    color: var(--text-2);
+    font-size: var(--fs-1);
+}
+
+.hint {
+    color: var(--text-2);
+    font-size: 12px;
+    margin-top: 2px;
+}

@@ -1,0 +1,220 @@
+.payment-table-wrap {
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: var(--space-2);
+    background: var(--panel);
+    overflow: visible;
+    /* let overlays show */
+}
+
+.table-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: var(--space-1) 0 var(--space-2);
+    gap: var(--space-2);
+}
+
+.table-actions .left {
+    display: flex;
+    gap: var(--space-2);
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.table-actions button {
+    padding: var(--space-1) var(--space-2);
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border);
+    background: var(--panel-elev);
+    cursor: pointer;
+    color: var(--text-1);
+}
+
+.add-stage-btn {
+    border-style: dashed;
+}
+
+.sum-chip {
+    font-size: var(--fs-1);
+    padding: 3px 8px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: var(--panel-elev);
+}
+
+.sum-chip.ok {
+    color: var(--ok);
+}
+
+.sum-chip.bad {
+    color: var(--bad);
+    font-weight: 600;
+}
+
+.currency {
+    color: var(--text-2);
+}
+
+.payment-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.payment-table th,
+.payment-table td {
+    border-bottom: 1px solid var(--border);
+    padding: var(--space-2);
+    vertical-align: middle;
+    overflow: visible;
+    /* allow overlay inputs */
+    position: relative;
+    /* anchor inline editor overlay */
+}
+
+.payment-table thead th {
+    background: color-mix(in srgb, var(--panel-elev) 60%, var(--panel));
+    font-weight: 600;
+    color: var(--text-1);
+}
+
+.payment-table .label {
+    text-align: left;
+    width: 30%;
+}
+
+.payment-table .num {
+    text-align: right;
+    white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+}
+
+/* ---- Stage headers ---- */
+.th-stage {
+    min-width: 140px;
+    text-align: right;
+    /* align with numeric values underneath */
+    vertical-align: bottom;
+    padding-bottom: var(--space-1);
+}
+
+.stage-header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    /* right align like table values */
+    gap: 2px;
+}
+
+.stage-line {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.stage-label .ie-display {
+    font-weight: 600;
+}
+
+.stage-mini .ie-display {
+    font-size: var(--fs-1);
+}
+
+.stage-remove {
+    background: transparent;
+    border: none;
+    color: var(--text-2);
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 1;
+    padding: 0 2px;
+}
+
+.stage-remove:hover {
+    color: var(--bad);
+}
+
+.pct-sign {
+    color: var(--text-2);
+    font-size: var(--fs-1);
+}
+
+/* ---- Row styling ---- */
+.row-label {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 2px;
+}
+
+.inline-small {
+    min-width: 40px;
+}
+
+.muted {
+    color: var(--text-2);
+    font-size: 0.9em;
+}
+
+.sep {
+    display: block;
+    border-top: 1px dashed var(--border);
+    height: 1px;
+}
+
+.row-remove {
+    margin-left: 8px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    color: var(--text-2);
+    font-size: 16px;
+}
+
+.row-remove:hover {
+    color: var(--bad);
+}
+
+.total-row {
+    background: color-mix(in srgb, var(--chart-3) 6%, var(--panel));
+}
+
+.strong {
+    font-weight: 700;
+}
+
+/* ---- Investment line ---- */
+.investment-notice {
+    margin-top: var(--space-2);
+    font-size: var(--fs-1);
+    color: var(--text-2);
+}
+
+/* ---- FX row ---- */
+.fx-row {
+    background: color-mix(in srgb, var(--panel-elev) 30%, var(--panel));
+}
+
+.fx-label {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.fx-select {
+    background: var(--panel-elev);
+    color: var(--text-1);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 2px 6px;
+    font: inherit;
+}
+
+.fx-select:focus {
+    outline: 2px solid color-mix(in srgb, var(--text-2) 40%, transparent);
+    outline-offset: 1px;
+}
+
+.fx-from {
+    color: var(--text-2);
+}

@@ -1,0 +1,113 @@
+.ie-wrap {
+    position: relative;
+    display: inline-block;
+    line-height: 1.25;
+    font-family: var(--font-sans);
+    font-size: var(--fs-1);
+    color: var(--text-1);
+    overflow: visible;
+}
+
+/* High-specificity selectors to beat table styles */
+.ie-wrap .ie-display[data-editable="true"] {
+    position: relative;
+    padding: 0 var(--space-1);
+    cursor: text;
+    white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+    transition: color 140ms ease, background-color 140ms ease, border-color 140ms ease;
+    /* Brand‑tinted dotted underline (border) */
+    border-bottom: 3px dotted color-mix(in srgb, var(--color-brand) 40%, var(--border));
+    /* Fallback underline using background gradient if some reset kills borders */
+
+    background-size: 6px 3px;
+    background-repeat: repeat-x;
+    background-position: left bottom;
+}
+
+.ie-wrap .ie-display[data-editable="true"]:hover {
+    border-bottom-color: var(--color-brand);
+    background-color: color-mix(in srgb, var(--color-brand) 8%, transparent);
+}
+
+.ie-wrap .ie-display.is-editing {
+    border-bottom-color: transparent;
+    background-image: none;
+    background-color: transparent;
+}
+
+/* Optional pencil affordance */
+.ie-wrap .ie-display[data-editable="true"]::after {
+    content: '✎';
+    position: absolute;
+    right: -18px;
+    top: 50%;
+    transform: translateY(-52%);
+    font-size: 12px;
+    color: var(--text-2);
+    opacity: 0;
+    transition: opacity 120ms ease;
+    pointer-events: none;
+}
+
+.ie-wrap:hover .ie-display[data-editable="true"]::after {
+    opacity: 0.9;
+}
+
+/* Click target */
+.ie-hotspot {
+    position: absolute;
+    inset: 0;
+    background: transparent;
+    border: 0;
+    padding: 0;
+    cursor: text;
+}
+
+/* Overlay input */
+.ie-input-overlay {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font: inherit;
+    line-height: 1.25;
+    padding: var(--space-1) var(--space-2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    background: var(--panel);
+    color: var(--text-1);
+    box-shadow: 0 10px 26px rgba(0, 0, 0, 0.16);
+    z-index: 5;
+    min-width: 72px;
+    max-width: 1600px;
+    outline: none;
+    caret-color: var(--text-1);
+}
+
+.ie-input-overlay.align-left {
+    left: 0;
+    right: auto;
+}
+
+.ie-input-overlay.align-right {
+    right: 0;
+    left: auto;
+}
+
+.ie-input-overlay:focus {
+    border-color: var(--color-brand);
+    box-shadow:
+        0 10px 26px rgba(0, 0, 0, 0.16),
+        0 0 0 2px color-mix(in srgb, var(--color-brand) 28%, transparent);
+}
+
+/* Hidden measuring span for autosize */
+.ie-measure {
+    position: absolute;
+    visibility: hidden;
+    white-space: nowrap;
+    pointer-events: none;
+    font: inherit;
+    line-height: 1.25;
+    padding: 0 var(--space-1);
+}

@@ -1,0 +1,25 @@
+/* src/components/PropertyForm/PropertyForm.css */
+
+.section {
+    margin-top: var(--space-4);
+}
+
+.section h4 {
+    margin: 0 0 8px 0;
+    font-size: 1rem;
+    color: var(--text);
+    opacity: .9;
+}
+
+.form-grid {
+    display: grid;
+    gap: 12px var(--space-3);
+    /* Fit as many fields per row as will reasonably fit */
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+/* Slightly tighter card content */
+.card h3 {
+    margin-top: 0;
+    margin-bottom: 12px;
+}

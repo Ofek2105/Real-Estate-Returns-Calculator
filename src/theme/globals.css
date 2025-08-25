@@ -1,0 +1,66 @@
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--space-4);
+}
+
+input {
+    height: 36px;
+    padding: 0 10px;
+    font-size: 0.95rem;
+    border-radius: 8px;
+}
+
+.card {
+    margin: var(--space-3);
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: var(--space-4);
+}
+
+.card h3 {
+    margin: 0 0 var(--space-3);
+    font-size: var(--fs-4);
+}
+
+.row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-4);
+}
+
+@media (max-width: 900px) {
+    .row {
+        grid-template-columns: 1fr;
+    }
+}
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border);
+    padding: 10px 14px;
+    background: var(--panel-elev);
+    color: var(--text-1);
+    cursor: pointer;
+}
+
+.button.primary {
+    background: var(--color-brand);
+    color: var(--text-inverse);
+    border: none;
+}
+
+.kpi {
+    font-size: var(--fs-5);
+    font-weight: 700;
+}
+
+.kpi-label {
+    color: var(--text-2);
+    font-size: var(--fs-1);
+}
