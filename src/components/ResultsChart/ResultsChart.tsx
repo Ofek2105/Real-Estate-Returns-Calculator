@@ -21,7 +21,6 @@ type Props = {
 export default function ResultsChart({
     currency,
     fullPriceNow,
-    investmentCost, // eslint-disable-line @typescript-eslint/no-unused-vars
     monthlyRent,
     propAppreciationPctYear,
     rentAppreciationPctYear,

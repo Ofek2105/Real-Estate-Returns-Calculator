@@ -69,12 +69,11 @@ export default function PaymentPlanTable({ state, onChange, onInvestmentCost }: 
                 const data = await res.json() as { rates?: Record<string, number> };
                 if (isActive && data?.rates) {
                     setFxMap(prev => {
-                        // merge: prefer fetched, fall back to existing defaults for anything missing
                         const merged: Record<string, number> = { ...prev };
                         for (const k of popularCurrencies) {
-                            if (typeof data.rates[k] === 'number') merged[k] = data.rates[k]!;
+                            const v = data.rates?.[k];        // <- safe access
+                            if (typeof v === 'number') merged[k] = v;
                         }
-                        // Ensure identity (e.g., if user picks same as base)
                         merged[baseCurrency] = 1;
                         return merged;
                     });
@@ -441,7 +440,7 @@ export default function PaymentPlanTable({ state, onChange, onInvestmentCost }: 
                                     type="number"
                                     title="Edit exchange rate"
                                     className="inline-small"
-                                    step={0.01}   
+                                    step={0.01}
                                 />
                             </div>
                         </th>
