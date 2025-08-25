@@ -8,7 +8,7 @@ import HelpPanel from './components/HelpPanel/HelpPanel';
 import { computeFullPrice, computeTotal100 } from './utils/math';
 
 import type { PaymentTableState, Row } from './types/finance';
-import './app.css';
+import './App.css';
 
 function uuid() { return Math.random().toString(36).slice(2); }
 
