@@ -5,7 +5,6 @@ import {
     computeFullPrice,
     computeTaxBase,
     computeTotal100,
-    isStateValid,
     sumStagePercents
 } from '../../utils/math';
 import InlineEditable from '../InlineEditable/InlineEditable';
@@ -38,7 +37,6 @@ export default function PaymentPlanTable({ state, onChange }: Props) {
     const { addToast } = useToasts();
 
     const percentSum = useMemo(() => sumStagePercents(state), [state]);
-    const validity = useMemo(() => isStateValid(state), [state]);
 
     const apartmentPrice = useMemo(() => {
         const row = state.rows.find(r => r.builtin === 'apartment' && r.kind === 'amount');
