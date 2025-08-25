@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import { useMemo } from 'react';
 import InlineEditable from '../InlineEditable/InlineEditable';
 import { formatCurrency } from '../../utils/format';
 

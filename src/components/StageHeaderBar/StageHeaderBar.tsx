@@ -1,4 +1,3 @@
-import React from 'react';
 import type { Stage } from '../../types/finance';
 import InlineEditable from '../InlineEditable/InlineEditable';
 import './StageHeaderBar.css';
